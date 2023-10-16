@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { counter } from '$lib/counter';
+	import Btn from './btn.svelte';
 </script>
 
-<button
-	class="bg-slate-400 px-3 py-1 rounded shadow-md"
-	on:click={() => counter.set(0)}>reset</button
->
-<button
-	class="bg-slate-400 px-3 py-1 rounded shadow-md"
-	on:click={() => ($counter = 0)}>reset</button
->
+<Btn onClick={() => counter.set(0)}>reset</Btn>
+<Btn onClick={() => ($counter = 0)}>reset</Btn>
