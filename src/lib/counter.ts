@@ -40,3 +40,13 @@ doubled.subscribe((count) => console.log(count));
 
 const quin = derived([counter, counter], ([a, b]) => a * 2 + b * 3);
 quin.subscribe((count) => console.log(count));
+
+export function createCounter(count: number) {
+	const { subscribe, update, set } = writable(count);
+	const increment = () => update((count) => count + 1);
+	const decrement = () => update((count) => count - 1);
+	const reset = () => set(0);
+	return { subscribe, increment, decrement, reset };
+}
+
+export const counter2 = createCounter(5);
