@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { countInitial, counter, counter2 } from '$lib/counter';
 	import Btn from './btn.svelte';
 	import Minus from './minus.svelte';
@@ -11,6 +12,10 @@
 	});
 
 	// unsubscribe(); // on destroy ... etc
+
+	export let data;
+	console.log('data: ' + data.count);
+	console.log('$page.data ' + $page.data.count);
 </script>
 
 <div
